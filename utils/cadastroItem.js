@@ -11,7 +11,7 @@ async function cadastroItem(page) {
   await botaoCadastrar.scrollIntoViewIfNeeded();
   await botaoCadastrar.click();
   await page.getByRole("textbox", { name: "Descrição*" }).press("CapsLock");
-  await page.getByRole("textbox", { name: "Descrição*" }).fill(nomeProduto); // ← aqui, no lugar de "Camisa"
+  await page.getByRole("textbox", { name: "Descrição*" }).fill(nomeProduto);
   await page.getByRole("textbox", { name: "Descrição*" }).press("Enter");
   await page.locator('[id="product.hasVariations"]').check();
   await page.getByRole("button", { name: "Dados fiscais" }).click();
@@ -52,7 +52,8 @@ async function cadastroItem(page) {
     .getByRole("textbox", { name: "fiscal.produto.NCM-searchbox" })
     .press("Enter");
   await page.getByRole("button", { name: "Reforma tributária" }).click();
-  await page.getByRole("button").nth(3).click();
+  await page.locator("#classTribIBSCBS").waitFor({ state: "visible" });
+  await page.locator("#classTribIBSCBS").click();
   await page.locator("#classTribIBSCBS").press("ArrowDown");
   await page.locator("#classTribIBSCBS").press("Enter");
   await page.getByRole("button", { name: "Grade" }).click();
