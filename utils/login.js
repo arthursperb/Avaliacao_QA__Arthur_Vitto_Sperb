@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 async function login(page) {
-  await page.goto("https://eweb-1383.staging.zweb.com.br/#/sign-in");
+  await page.goto("https://eweb-1383.staging.zweb.com.br/");
   await page
     .getByRole("textbox", { name: "E-mail" })
     .fill(process.env.QA_EMAIL);

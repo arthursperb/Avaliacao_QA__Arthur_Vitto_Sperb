@@ -8,3 +8,5 @@ node_modules/
 /playwright/.auth/
 .env
 .DS_Store
+generate.auth.js
+auth.json
